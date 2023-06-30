@@ -8,9 +8,14 @@ $url = "https://apoyotic.us.es"
 $name = "ApoyoTIC"
 
 # Elegimos el nombre del icono
+#  fama
+#  horfeus
+#  unitic
+#  mint
+#  potac
 $icon = "fama.ico"
 
-# Verificamos la existencia de la ruta donde se guardará el icono o la creamos
+# Verificamos la existencia de la ruta donde se guardarï¿½ el icono o la creamos
 $Path = "c:\unitic\iconos"
 if (-not (Test-Path -Path $Path)) {
     New-Item -Path $Path -ItemType Directory -Force
