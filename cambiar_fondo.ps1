@@ -3,6 +3,7 @@
     ### fondo-docencia.jpg ###
     ### fondo-tic.jpg      ###
     ### fondo-unitic.jpg   ###
+	
 $desk_image = "fondo-docencia.jpg"
 
 # Verificamos la existencia de la ruta donde se guardará el icono o la creamos
@@ -21,7 +22,7 @@ if (Test-Path -Path $FilePath -PathType Leaf) {
     Remove-Item -Path "$Path\fondo.jpg" -Force
     Write-Host "El archivo '$desk_image' ha sido eliminado correctamente."
 } else {
-    Write-Host "El archivo '$desk_image' no existe. No se ha borrado nada"
+    Write-Host "El archivo '$desk_image' no existe. Copiamos el fichero en el directorio '$Path'"
 }
 
 # Ruta del icono alojado en GitHub
