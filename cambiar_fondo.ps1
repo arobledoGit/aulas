@@ -1,11 +1,33 @@
-﻿# Elegimos la imagen que queremos que aparezca como fondo de escritorio
-    ### fondo-remotePC.jpg ###
-    ### fondo-docencia.jpg ###
-    ### fondo-tic.jpg      ###
-    ### fondo-unitic.jpg   ###
-	### fondo-temporal.jpg ###
-	
-$desk_image = "fondo-temporal.jpg"
+# Limpiar la pantalla
+Clear-Host
+
+# Lista de imágenes disponibles
+$opciones = @(
+    "fondo-remotePC.jpg",
+    "fondo-docencia.jpg",
+    "fondo-tic.jpg",
+    "fondo-provisional.jpg"
+)
+
+# Mostrar las opciones al usuario
+Write-Host "Selecciona la imagen que deseas usar como fondo de escritorio:
+"
+for ($i = 0; $i -lt $opciones.Length; $i++) {
+    Write-Host "$($i + 1). $($opciones[$i])"
+}
+
+# Solicitar la opción del usuario
+$seleccion = Read-Host "
+Ingresa el número de la opción deseada"
+
+# Verificar si la entrada es válida
+if ($seleccion -match '^\d+$' -and $seleccion -gt 0 -and $seleccion -le $opciones.Length) {
+    $desk_image = $opciones[$seleccion - 1]
+    Write-Host "La imagen seleccionada es: $desk_image"
+} else {
+    Write-Host "Selección inválida. Saliendo del script."
+    exit
+}
 
 # Verificamos la existencia de la ruta donde se guardará el icono o la creamos
 $Path = "c:\unitic\images"
@@ -28,9 +50,6 @@ if (Test-Path -Path $FilePath -PathType Leaf) {
 
 # Ruta del icono alojado en GitHub
 $imageUrl = "https://raw.githubusercontent.com/arobledoGit/aulas/main/images/$desk_image"
-
-# Ruta local para guardar el icono descargado
-# $localIconPath = Join-Path -Path $Path -ChildPath "$desk_image"
 
 # Descargar el icono desde GitHub
 Invoke-WebRequest -Uri $imageUrl -OutFile "$Path\fondo.jpg"
