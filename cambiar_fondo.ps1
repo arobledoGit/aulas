@@ -3,8 +3,9 @@
     ### fondo-docencia.jpg ###
     ### fondo-tic.jpg      ###
     ### fondo-unitic.jpg   ###
+	### fondo-temporal.jpg ###
 	
-$desk_image = "fondo-docencia.jpg"
+$desk_image = "fondo-temporal.jpg"
 
 # Verificamos la existencia de la ruta donde se guardará el icono o la creamos
 $Path = "c:\unitic\images"
